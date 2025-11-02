@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://purplescope.uk/</loc>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://purplescope.uk/404</loc>
+    <priority>0.10</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- eligibility page (future or current if you add it) -->
+  <url>
+    <loc>https://purplescope.uk/eligibility</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- knowledge / tender info article page (SEO weapon — add when ready) -->
+  <url>
+    <loc>https://purplescope.uk/insights</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
