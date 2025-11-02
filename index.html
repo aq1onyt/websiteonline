@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PurpleScope</title>
-  <meta name="description" content="PurpleScope"  -  WE FIND, BROKER, AND WIN PUBLIC SECTOR CONTRACTS. NO WIN, NO FEE. STRUCTURED FOR SCALE AND LONG-TERM CONTROL OF THE PIPELINE." />
-  <meta property="og:title" content="PurpleScope Limited" />
-  <meta property="og:description" content="Contract Brokerage & Acquisition  -  No Win, No Fee." />
+  <meta name="description" content="PurpleScope - exclusive contract brokerage and expert bid & proposal writing. Email for eligibility; we help you shape and win the public sector work you want." />
+  <meta property="og:title" content="PurpleScope" />
+  <meta property="og:description" content="Exclusive contract brokerage and proposal writing. Email for eligibility." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.png" />
   <meta name="theme-color" content="#6d28d9" />
@@ -50,8 +50,11 @@
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       border: 1px solid rgba(255,255,255,.08);
     }
-  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal{opacity:1;transform:translateY(20px);transition:transform .6s ease;will-change:transform;}
 .reveal.visible{opacity:1;transform:translateY(0);}
+/* prevent color flicker on translucent surfaces: don't fade opacity on glass cards */
+.glass.reveal, .bg-white\/5.reveal{opacity:1;transform:translateY(12px);transition:transform .6s ease;}
+.glass.reveal.visible, .bg-white\/5.reveal.visible{transform:translateY(0);}
 .has-tooltip::after{content:attr(data-title);position:absolute;left:50%;top:-0.5rem;transform:translate(-50%,-100%);background:rgba(0,0,0,.7);padding:.25rem .5rem;border-radius:.375rem;font-size:10px;opacity:0;pointer-events:none;transition:opacity .2s ease;white-space:nowrap}
 .has-tooltip:hover::after{opacity:1}
 .cursor-purple{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="%236d28d9"/></svg>') 8 8, auto}
@@ -68,6 +71,8 @@ body.theme-light .border-white\/10{ border-color: rgba(0,0,0,.12) !important; }
 body.theme-light .bg-white\/5{ background-color: rgba(0,0,0,.04) !important; }
 body.theme-light .hover\:bg-white\/5:hover{ background-color: rgba(0,0,0,.06) !important; }
 body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !important; }
+body.theme-light .text-white\/50, body.theme-light .text-white\/40 { color:#111 !important; opacity:0.65 !important; }
+.glass, .bg-white\/5 { transition: background-color .45s ease, border-color .45s ease, color .45s ease, box-shadow .45s ease; }
 </style>
 </head>
 <body class="bg-[#0f0f17] text-white antialiased">
@@ -89,7 +94,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
             <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5"><path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
             <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5 hidden"><path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10 10h2v-3h-2v3zm9.83-18.16l-1.79-1.79-1.8 1.79 1.8 1.79 1.79-1.79zM20 13h3v-2h-3v2zM6.76 19.16l-1.8 1.79 1.41 1.41 1.79-1.79-1.4-1.41zM17.24 19.16l1.4 1.41 1.79-1.79-1.41-1.41-1.78 1.79zM12 7a5 5 0 100 10 5 5 0 000-10zm-1-7h2v3h-2V0z"/></svg>
           </button>
-          <a href="#contact" class="hidden rounded-xl bg-brand-600 px-4 py-2 text-sm font-medium text-white shadow-soft transition hover:bg-brand-500 md:inline-block">Contact us</a>
+          <a href="#contact" class="hidden rounded-xl bg-brand-600 px-4 py-2 text-sm font-medium text-white shadow-soft transition hover:bg-brand-500 md:inline-block">Check eligibility</a>
           <button id="menuBtn" class="inline-flex items-center rounded-xl border border-white/10 px-3 py-2 md:hidden" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
             <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
@@ -118,8 +123,8 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
         <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">PurpleScope</h1>
         <p class="text-lg text-white/70">Contract Brokerage & Acquisition. We connect private companies with government and local authority contracts and we help them win. We are professional bid and proposal writers, building winning responses that secure public sector opportunities.</p>
         <div class="mt-2 flex items-center justify-center gap-3">
-          <a href="#contact" class="rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-500">Contact us</a>
-          <a href="#model" class="rounded-xl border border-white/10 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/5">Learn the model</a>
+          <a href="#contact" class="rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-500">Check eligibility</a>
+          <a href="#model" class="rounded-xl border border-white/10 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/5">Proposal writing</a>
         </div>
       </div>
     </div>
@@ -145,7 +150,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
         </div>
         <div class="glass rounded-2xl p-6">
           
-          <h3 class="mt-4 text-lg font-semibold">Bid Management</h3>
+          <h3 class="mt-4 text-lg font-semibold">Bid Writing & Management</h3>
           <p class="mt-2 text-sm text-white/70">We handle the bidding process end‑to‑end so partners can focus on delivery.</p>
           <ul class="mt-4 list-inside list-disc text-sm text-white/70">
             <li>Response strategy & authoring</li>
@@ -171,21 +176,21 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
   <section id="model" class="relative z-10 py-20 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold">The Model</h2>
-        <p class="mt-3 text-white/70">No win, no fee. Simple, aligned, scalable.</p>
+        <h2 class="text-3xl font-bold">Eligibility & Engagement</h2>
+        <p class="mt-3 text-white/70">Selective partnerships. No win, no fee. We prioritise fit over volume.</p>
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         <div class="glass rounded-2xl p-6">
-          <h3 class="text-lg font-semibold">1) Find & Match</h3>
-          <p class="mt-2 text-sm text-white/70">We track public sector tenders and match them with capable suppliers.</p>
+          <h3 class="text-lg font-semibold">1) Eligibility & Fit</h3>
+          <p class="mt-2 text-sm text-white/70">Quick, confidential screening to confirm capability, scope, and capacity. We only onboard a small number at a time.</p>
         </div>
         <div class="glass rounded-2xl p-6">
-          <h3 class="text-lg font-semibold">2) Bid & Win</h3>
-          <p class="mt-2 text-sm text-white/70">We steer the bid process, handle submissions, and support clarifications.</p>
+          <h3 class="text-lg font-semibold">2) Bid Writing & Strategy</h3>
+          <p class="mt-2 text-sm text-white/70">We lead proposal strategy, write the response, and align technicals with evaluation criteria for high scoring.</p>
         </div>
         <div class="glass rounded-2xl p-6">
-          <h3 class="text-lg font-semibold">3) Deliver & Scale</h3>
-          <p class="mt-2 text-sm text-white/70">If awarded, a small percentage is due. Over time, we also bid directly or via JV and deliver through our network.</p>
+          <h3 class="text-lg font-semibold">3) Brokerage or Direct Delivery</h3>
+          <p class="mt-2 text-sm text-white/70">On award, we broker, co‑deliver through partners, or deliver directly via structured JVs - whichever creates the cleanest execution.</p>
         </div>
       </div>
       <div class="mx-auto mt-10 max-w-3xl text-center text-sm text-white/60">
@@ -200,7 +205,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
       <div class="grid items-center gap-10 md:grid-cols-2">
         <div>
           <h2 class="text-3xl font-bold">About PurpleScope</h2>
-          <p class="mt-4 text-white/70">We are the link between opportunity and execution  -  turning government money into private‑sector profit. We operate quietly, move decisively, and prioritise results.</p>
+          <p class="mt-4 text-white/70">We are the link between opportunity and execution, turning government money into private‑sector profit. We move decisively and prioritise results.</p>
           <ul class="mt-6 grid gap-3 text-sm text-white/70">
             <li class="flex items-center gap-3"><span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span> Outcome‑first</li>
             <li class="flex items-center gap-3"><span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span> Transparent metrics</li>
@@ -240,13 +245,10 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
       <div class="grid items-center gap-8 rounded-3xl bg-gradient-to-tr from-brand-700/40 to-brand-500/20 p-8 shadow-soft md:grid-cols-2 md:p-12">
         <div>
           <h3 class="text-2xl font-bold">Ready When You Are</h3>
-          <p class="mt-2 text-white/80">Share a few details and we’ll confirm a short discovery call.</p>
+          <p class="mt-2 text-white/80">We operate on a limited‑engagement basis. Email us for an eligibility review, if there’s a fit we proceed quickly and quietly.</p>
         </div>
         <div class="glass rounded-2xl p-4 text-center">
-  <a id="ctaEmail" href="#" role="button" class="relative has-tooltip text-base underline-offset-4 " data-title="Copy" aria-label="Copy email to clipboard">purplescopeltd@proton.me</a>
-</div>
-</div>
-          </div>
+          <a id="ctaEmail" href="#" role="button" class="relative has-tooltip text-base underline-offset-4" data-title="Copy" aria-label="Copy email to clipboard">eligibility@purplescope.uk</a>
         </div>
       </div>
     </div>
@@ -259,7 +261,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
         <div class="grid gap-6 md:grid-cols-2">
           <div class="space-y-2">
             <h4 class="text-lg font-semibold">Contact</h4>
-            <p class="text-sm text-white/70">Email <a href="mailto:purplescopeltd@proton.me" class="underline decoration-white/30 hover:decoration-white">purplescopeltd@proton.me</a></p>
+            <p class="text-sm text-white/70">Email <a href="mailto:eligibility@purplescope.uk" class="underline decoration-white/30 hover:decoration-white">eligibility@purplescope.uk</a></p>
           </div>
           <div class="space-y-2 md:pl-6 md:border-l md:border-white/10">
             <h4 class="text-lg font-semibold">Locations</h4>
@@ -319,7 +321,32 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
         menuBtn.click(); // revert
       }
       console.assert(!!yearEl && yearEl.textContent && yearEl.textContent.length >= 4, 'Year not set in footer');
+      // test: no .reveal on .glass cards (to avoid opacity flicker)
+      (function(){
+        const bad = Array.from(document.querySelectorAll('.glass')).some(el=>el.classList.contains('reveal'));
+        console.assert(!bad, 'Glass cards should not have reveal class');
+      })();
       console.groupEnd();
+
+      // smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',e=>{
+          const href = a.getAttribute('href') || '';
+          if (a.id === 'ctaEmail' || a.hasAttribute('data-no-scroll')) return;
+          if (href === '#' || href === '') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else if (href.startsWith('#')) {
+            const id = href.slice(1);
+            const target = document.getElementById(id);
+            if (target) {
+              e.preventDefault();
+              const y = target.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }
+        });
+      });
 
       // theme toggle (default dark)
       const themeBtn = document.getElementById('themeToggle');
@@ -347,7 +374,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
       // copy email on clicking link (no mail client)
       const emailLink = document.getElementById('ctaEmail');
       if (emailLink) {
-        const email = 'purplescopeltd@proton.me';
+        const email = 'eligibility@purplescope.uk';
         const doCopy = (text) => {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             return navigator.clipboard.writeText(text);
@@ -377,7 +404,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
       // copy email (no permission prompt)
       const copyBtn = document.getElementById('copyEmail');
       if (copyBtn) {
-        const email = 'purplescopeltd@proton.me';
+        const email = 'eligibility@purplescope.uk';
         const doCopy = (text) => {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             return navigator.clipboard.writeText(text);
@@ -409,7 +436,7 @@ body.theme-light .shadow-soft{ box-shadow: 0 10px 30px rgba(0,0,0,.08) !importan
 // scroll reveal that re-triggers when sections re-enter the viewport
 (function(){
   // ensure targets have the reveal class (sections and cards)
-  document.querySelectorAll('section, .glass').forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('section').forEach(el => el.classList.add('reveal'));
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
