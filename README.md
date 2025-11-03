@@ -4,9 +4,9 @@ This repository contains the front-end website for PurpleScope.
 It includes the HTML, CSS, and assets used for our public site hosted on GitHub Pages.
 
 PurpleScope is a UK-registered company:
-PurpleScope Limited — Company No. 16648851
+PurpleScope Limited / Company No. 16648851
 
-✅ What this repo is
+What this repo is
 
 Public website code
 
